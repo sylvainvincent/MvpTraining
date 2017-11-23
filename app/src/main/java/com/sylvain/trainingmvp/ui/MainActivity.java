@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onNext(List<Users> value) {
         recyclerViewUsers.setAdapter(new UsersListAdapter(MainActivity.this, value));
+        onComplete();
         Log.i("test", "onNext: pk");
       }
 

@@ -20,15 +20,18 @@ public class ApiHandler {
 
     if(retrofit == null){
 
+      // pour les logs
       HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
       interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+      // faire des appels reseaux plus rapides
       OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
        retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .client(client)
+           // .client(client)
             .build();
     }
 
